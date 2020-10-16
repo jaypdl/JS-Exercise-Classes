@@ -147,7 +147,6 @@ class Instructor extends Lambdasian {
     return `${student.name} receives a perfect score on ${subject}`;
   }
 }
-
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
@@ -172,10 +171,7 @@ class Student extends Lambdasian{
     this.favSubjects = obj.favSubjects;
   }
   listSubjects(){
-    let favs = '';
-    this.favSubjects.reduce(function(acc,subj){
-
-    },'')
+    return `Loving ${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}!`
   }
   PRAssignment(subject){
     return `${this.name} has submitted a PR for ${subject}`;
@@ -201,11 +197,20 @@ class Student extends Lambdasian{
 class ProjectManager extends Instructor{
   constructor(obj){
     super(obj);
-    
+    this.gradClassName = obj.gradClassName;
+    this.favInstructor = obj.favInstructor;
   }
-
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`
+  }
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
+  }
 }
-
+function sum(num1, num2){
+  return num1 + num2;
+}
+console.log(sum(2, 5));
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
